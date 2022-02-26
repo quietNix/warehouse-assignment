@@ -106,7 +106,7 @@ function Listing({ immutableWarehouseData, editGlobalImmutableWarehouseData }) {
     }
 
     function handleNavigate(index) {
-        navigate(`./detail/${index+1}`, { replace: true });
+        navigate(`./detail/${index+1}`, { replace: false });
     }
 
     return (

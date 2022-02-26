@@ -39,12 +39,17 @@ function Detail({ immutableWarehouseData, editGlobalImmutableWarehouseData }) {
   function handleChange({ target }) {
     const { name, value } = target;
     setInputValues(prevInputValue => ({ ...prevInputValue, [name]: value }))
-    console.log(inputValues.is_live)
   }
 
   function handleEdit(e) {
     e.preventDefault();
-    immutableWarehouseData[id-1] = inputValues;
+    // immutableWarehouseData[id-1] = inputValues;
+    let updatedWarehouseData = immutableWarehouseData.map((warehouse, index)=> {
+      if(index===(id-1)) return inputValues;
+      return warehouse;
+    })
+
+    editGlobalImmutableWarehouseData(updatedWarehouseData);
     navigate("/", { replace: true })
   }
 
@@ -53,33 +58,33 @@ function Detail({ immutableWarehouseData, editGlobalImmutableWarehouseData }) {
       <h1>Detail of {Number(id)} </h1>
       <form>
         <div>
-          <label htmlFor="is_live">Live Status</label>
-          <select onChange={handleChange} name="is_live" id="is_live">
-            {inputValues.is_live ?
+          <label htmlFor="is_live">Registeration Status</label>
+          <select onChange={handleChange} name="is_registered" id="is_registered">
+            {inputValues.is_registered ?
               <>
-                <option defaultValue value="true">True</option>
+                <option value="true">True</option>
                 <option value="false">False</option>
               </>
               :
               <>
+                <option value="false">False</option>
                 <option value="true">True</option>
-                <option defaultValue value="false">False</option>
               </>
             }
           </select>
         </div>
         <div>
-          <label htmlFor="is_live">Registeration Status</label>
-          <select onChange={handleChange} name="is_registered" id="is_registered">
-            {inputValues.is_registered ?
+          <label htmlFor="is_live">Live Status</label>
+          <select onChange={handleChange} name="is_live" id="is_live">
+            {inputValues.is_live ?
               <>
-                <option defaultValue value="true">True</option>
+                <option value="true">True</option>
                 <option value="false">False</option>
               </>
               :
               <>
+                <option value="false">False</option>
                 <option value="true">True</option>
-                <option defaultValue value="false">False</option>
               </>
             }
           </select>
