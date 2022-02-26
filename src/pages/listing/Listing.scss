@@ -1,0 +1,119 @@
+.listing-container {
+  padding: 2rem 4rem 1rem;
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.listing {
+  flex: 1;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &-table {
+    border-collapse: collapse;
+    width: 100%;
+
+    & > thead {
+      vertical-align: top;
+      & > tr {
+        color: #00072b;
+        border-bottom: 2px solid rgba(201, 207, 218, 1);
+      }
+    }
+
+    & > tbody {
+      vertical-align: middle;
+
+      & > tr {
+        border-bottom: 0.5px solid rgba(201, 207, 218, 1);
+        padding: 20px 0;
+
+        &:hover {
+          cursor: pointer;
+          background: rgba(233, 233, 233, 1);
+        }
+
+        &:hover .listing-table__actionBtn {
+          visibility: visible;
+        }
+      }
+    }
+
+    &-columnCell {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      & input {
+        border: none;
+        width: 6rem;
+
+        &::placeholder {
+          color: #c9cfda;
+          font-size: 400;
+        }
+      }
+      & > span {
+        display: flex;
+        align-items: center;
+        gap: 0.1rem;
+
+        & > span {
+          display: flex;
+          gap: 0.2rem;
+
+          & > i {
+            font-size: 0.8rem;
+            color: #b0bac9;
+            cursor: pointer;
+            &:hover {
+              color: burlywood;
+            }
+          }
+        }
+      }
+    }
+
+    &__status {
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      display: block;
+      text-align: center;
+
+      &--0 {
+        background: #ffc452;
+      }
+
+      &--1 {
+        background: #04c35c;
+      }
+
+      &--2 {
+        background: #ffbbbb;
+      }
+    }
+
+    &__bubbleText {
+      border: 1px solid #dfe2e9;
+      border-radius: 6px;
+      padding: 0.1rem 0.4rem;
+    }
+
+    &__actionBtn {
+      display: flex;
+      gap: 1rem;
+      background: #73bbbf;
+      border-radius: 6px;
+      border: none;
+      padding: 0.6rem 1.6rem;
+      visibility: hidden;
+      margin: 0.1rem 0;
+    }
+  }
+}

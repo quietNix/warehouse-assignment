@@ -1,0 +1,20 @@
+html {
+  font-size: clamp(9px, 1rem, 4vmax);
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6em;
+  color: #323F4B;
+}
+
+.typo__heading-h1 {
+  font-size: 2.25em;
+  line-height: 1.2em;
+  font-weight: 500;
+}
+
+.typo__p{
+  font-weight: 400;
+}
